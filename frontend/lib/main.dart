@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-import 'screens/player_search_screen.dart';
-import 'screens/player_details_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/brawl_stars_screen.dart';
+import 'screens/clash_of_clans_screen.dart';
 
 void main() {
-  runApp(ClashProgressApp());
+  runApp(const ClashProgressApp());
 }
 
 class ClashProgressApp extends StatelessWidget {
+  const ClashProgressApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Clash Tracker',
+      title: 'Game Stats Tracker',
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
-        '/': (context) => PlayerSearchScreen(),
-        '/player-details': (context) => PlayerDetailsScreen(),
+        '/': (context) => const HomeScreen(),
+        '/brawl-stars': (context) => const BrawlStarsScreen(),
+        '/clash-of-clans': (context) => const ClashOfClansScreen(),
       },
     );
   }
