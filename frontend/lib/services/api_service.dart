@@ -1,17 +1,25 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:io' show Platform;
 
 class ApiService {
-  static const String baseUrl = 'http://10.0.2.2:3000'; // Android emulator local host
+  // For iOS simulator, we use localhost
+  static const String baseUrl = 'http://localhost:3000';
 
   static Future<Map<String, dynamic>> getPlayer(String tag) async {
-    final encodedTag = Uri.encodeComponent(tag);
-    final response = await http.get(Uri.parse('$baseUrl/player/$encodedTag'));
+    try {
+      final encodedTag = Uri.encodeComponent(tag);
+      final response = await http.get(Uri.parse('$baseUrl/api/player/$encodedTag'));
 
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception('Failed to fetch player data');
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        print('Error response: ${response.body}');
+        throw Exception('Failed to fetch player data: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Network error: $e');
+      throw Exception('Network error: $e');
     }
   }
 }
