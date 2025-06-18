@@ -4,7 +4,7 @@ import 'dart:io' show Platform;
 
 class ApiService {
   // For iOS simulator, we use localhost
-  static const String baseUrl = 'http://localhost:3000';
+  static const String baseUrl = 'https://enabling-asp-vigorously.ngrok-free.app';
 
   static Future<Map<String, dynamic>> getPlayer(String tag) async {
     try {

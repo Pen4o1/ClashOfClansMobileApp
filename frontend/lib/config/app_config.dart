@@ -1,6 +1,6 @@
 class AppConfig {
   // API Configuration
-  static const String apiBaseUrl = 'http://192.168.100.229:3000'; // Replace with your computer's IP address
+  static const String apiBaseUrl = 'http://enabling-asp-vigorously.ngrok-free.app'; // ngrok tunnel URL
   
   // API Endpoints
   static String get cocPlayerEndpoint => '$apiBaseUrl/api/coc/player';

@@ -5,7 +5,7 @@ import '../services/storage_service.dart';
 import '../config/app_config.dart';
 
 // API configuration
-const String apiBaseUrl = 'http://192.168.1.100:3000'; // Replace with your computer's IP address
+const String apiBaseUrl = 'https://enabling-asp-vigorously.ngrok-free.app'; // Replace with your computer's IP address
 
 class ClashOfClansScreen extends StatefulWidget {
   const ClashOfClansScreen({super.key});
