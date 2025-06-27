@@ -13,7 +13,7 @@ module.exports = {
       const response = await api.get(`/players/%23${tag}`);
       return response.data;
     } catch (error) {
-      if (error.response && error.response.status === 404) {
+      if (error.response && (error.response.status === 404 || error.response.status === 400)) {
         const notFoundError = new Error('Player not found');
         notFoundError.reason = 'notFound';
         throw notFoundError;
