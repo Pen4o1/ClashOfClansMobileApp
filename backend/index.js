@@ -14,5 +14,4 @@ app.use(express.json());
 app.use('/api/braw/player', brawApi);
 app.use('/api/coc/player', cocApi);
 
-// Export only the app for testing and server import
 module.exports = app;
