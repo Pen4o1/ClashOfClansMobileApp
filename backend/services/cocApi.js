@@ -13,7 +13,11 @@ module.exports = {
       const response = await api.get(`/players/%23${tag}`);
       return response.data;
     } catch (error) {
-      console.error(error.response?.data || error.message);
+      if (error.response && error.response.status === 404) {
+        const notFoundError = new Error('Player not found');
+        notFoundError.reason = 'notFound';
+        throw notFoundError;
+      }
       throw error;
     }
   },

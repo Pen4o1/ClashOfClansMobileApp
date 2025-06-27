@@ -8,7 +8,11 @@ router.get('/:tag', async (req, res) => {
     const data = await getPlayer(tag);
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch player data' });
+    if (error.reason === 'notFound') {
+      res.status(404).json({ error: 'Player not found' });
+    } else {
+      res.status(500).json({ error: 'Failed to fetch player data' });
+    }
   }
 });
 

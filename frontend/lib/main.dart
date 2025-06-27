@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/brawl_stars_screen.dart';
 import 'screens/clash_of_clans_screen.dart';
+import 'screens/auth/login_screen.dart';
 
 void main() {
   runApp(const ClashProgressApp());
@@ -17,7 +18,8 @@ class ClashProgressApp extends StatelessWidget {
       theme: ThemeData.dark(),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen(),
         '/brawl-stars': (context) => const BrawlStarsScreen(),
         '/clash-of-clans': (context) => const ClashOfClansScreen(),
       },
