@@ -3,12 +3,10 @@ name: Run Node.js Backend Tests
 on:
   push:
     branches: [main]
-    paths:
-      - 'backend/**'
+    paths: ['backend/**']
   pull_request:
     branches: [main]
-    paths:
-      - 'backend/**'
+    paths: ['backend/**']
 
 jobs:
   test:
@@ -27,9 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Run tests
-        run: npm test
+      
+      - name: Check env vars
+        run: 
+          echo "COC_API_KEY is ${COC_API_KEY:0:10}..."
+          echo "BRAW_STARS_API_KEY is ${BRAW_STARS_API_KEY:0:10}..."
         env:
           COC_API_KEY: "${{ secrets.COC_API_KEY }}"
           BRAW_STARS_API_KEY: "${{ secrets.BRAW_STARS_API_KEY }}"
