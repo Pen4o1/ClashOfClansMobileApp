@@ -31,3 +31,9 @@ jobs:
         env:
           COC_API_KEY: "${{ secrets.COC_API_KEY }}"
           BRAW_STARS_API_KEY: "${{ secrets.BRAW_STARS_API_KEY }}"
+
+      - name: Run tests
+        run: npm test
+        env:
+          COC_API_KEY: "${{ secrets.COC_API_KEY }}"
+          BRAW_STARS_API_KEY: "${{ secrets.BRAW_STARS_API_KEY }}"
