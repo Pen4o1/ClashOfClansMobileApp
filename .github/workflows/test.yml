@@ -27,17 +27,17 @@ jobs:
       - name: Check if secrets are defined
         run: |
           if [ -z "$COC_API_KEY" ]; then
-            echo "❌ COC_API_KEY is not set"
+            echo "COC_API_KEY is not set"
             exit 1
           else
-            echo "✅ COC_API_KEY is set"
+            echo "COC_API_KEY is set"
           fi
 
           if [ -z "$BRAW_STARS_API_KEY" ]; then
-            echo "❌ BRAW_STARS_API_KEY is not set"
+            echo "BRAW_STARS_API_KEY is not set"
             exit 1
           else
-            echo "✅ BRAW_STARS_API_KEY is set"
+            echo "BRAW_STARS_API_KEY is set"
           fi
 
 
