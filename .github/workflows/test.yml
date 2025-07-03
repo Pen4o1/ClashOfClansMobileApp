@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      COC_API_KEY: ${{ secrets.COC_API_KEY }}
+      BRAW_STARS_API_KEY: ${{ secrets.BRAW_STARS_API_KEY }}
     defaults:
       run:
         working-directory: backend
@@ -23,26 +26,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      
-      - name: Check if secrets are defined
-        run: |
-          if [ -z "$COC_API_KEY" ]; then
-            echo "COC_API_KEY is not set"
-            exit 1
-          else
-            echo "COC_API_KEY is set"
-          fi
-
-          if [ -z "$BRAW_STARS_API_KEY" ]; then
-            echo "BRAW_STARS_API_KEY is not set"
-            exit 1
-          else
-            echo "BRAW_STARS_API_KEY is set"
-          fi
-
 
       - name: Run tests
         run: npm test
         env:
           COC_API_KEY: "${{ secrets.COC_API_KEY }}"
           BRAW_STARS_API_KEY: "${{ secrets.BRAW_STARS_API_KEY }}"
+
+      - name: Test environment setup
+        run: echo "${{ secrets.COC_API_KEY }}"
