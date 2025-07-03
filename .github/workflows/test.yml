@@ -24,13 +24,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Check env vars
-        run: 
-          echo "COC_API_KEY is ${COC_API_KEY:0:10}..."
-          echo "BRAW_STARS_API_KEY is ${BRAW_STARS_API_KEY:0:10}..."
-        env:
-          COC_API_KEY: "${{ secrets.COC_API_KEY }}"
-          BRAW_STARS_API_KEY: "${{ secrets.BRAW_STARS_API_KEY }}"
+      - name: Check if secrets are defined
+        run: |
+          if [ -z "$COC_API_KEY" ]; then
+            echo "❌ COC_API_KEY is not set"
+            exit 1
+          else
+            echo "✅ COC_API_KEY is set"
+          fi
+
+          if [ -z "$BRAW_STARS_API_KEY" ]; then
+            echo "❌ BRAW_STARS_API_KEY is not set"
+            exit 1
+          else
+            echo "✅ BRAW_STARS_API_KEY is set"
+          fi
+
 
       - name: Run tests
         run: npm test
