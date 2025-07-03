@@ -1,5 +1,9 @@
 const axios = require('axios');
 
+if (!process.env.COC_API_KEY) {
+  throw new Error('COC_API_KEY is not defined in environment variables');
+}
+
 const api = axios.create({
   baseURL: 'https://api.clashofclans.com/v1',
   headers: {
