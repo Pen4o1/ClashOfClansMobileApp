@@ -61,6 +61,7 @@ A comprehensive mobile application for Clash of Clans and Brawl Stars players, b
    ```
    
    The API will be available at `http://localhost:3000`
+   or alternatively use ngrok to test on a real device
 
 ### Frontend Setup
 
