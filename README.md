@@ -51,8 +51,8 @@ A comprehensive mobile application for Clash of Clans and Brawl Stars players, b
    
    Add your API keys to `.env`:
    ```env
-   COC_API_KEY=your_clash_of_clans_api_key
-   BRAWL_STARS_API_KEY=your_brawl_stars_api_key
+   COC_API_KEY=Bearer your_clash_of_clans_api_key
+   BRAWL_STARS_API_KEY=Bearer your_brawl_stars_api_key
    ```
 
 4. **Run the backend server**
@@ -61,6 +61,7 @@ A comprehensive mobile application for Clash of Clans and Brawl Stars players, b
    ```
    
    The API will be available at `http://localhost:3000`
+   or alternatively use ngrok to use the app from mobile
 
 ### Frontend Setup
 
