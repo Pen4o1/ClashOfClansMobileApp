@@ -11,7 +11,7 @@ router.get('/:tag', async (req, res) => {
     if (error.reason === 'notFound') {
       res.status(404).json({ error: 'Player not found' });
     } else {
-      res.status(500).json({ error: 'Failed to fetch player data' });
+      res.status(500).json({ error: error.message });
     }
   }
 });
