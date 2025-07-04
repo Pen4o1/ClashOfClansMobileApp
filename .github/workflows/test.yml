@@ -12,7 +12,6 @@ jobs:
     env:
       COC_API_KEY: ${{ secrets.COC_API_KEY }}
       BRAW_STARS_API_KEY: ${{ secrets.BRAW_STARS_API_KEY }}
-      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     defaults:
       run:
         working-directory: backend
@@ -27,12 +26,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Test environment setup
-        run: echo "${{ secrets.COC_API_KEY }}"
-        
-      - name: Print secret key
-        run: echo "${{ secrets.SECRET_KEY }}"
 
       - name: Run tests
         run: npm test
