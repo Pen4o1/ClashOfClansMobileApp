@@ -1,4 +1,3 @@
-// tests/brawPlayer.test.js
 jest.mock('../services/brawApi', () => ({
   getPlayer: jest.fn((tag) => {
     if (tag === 'VALID123') {
