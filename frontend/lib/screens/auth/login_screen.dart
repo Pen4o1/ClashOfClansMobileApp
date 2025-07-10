@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,6 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
       // Handle login logic here
       debugPrint('Username:  [32m${_usernameController.text} [0m');
       debugPrint('Password:  [32m${_passwordController.text} [0m');
+
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
+    );
     }
   }
 
@@ -74,10 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
+              SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
                 onPressed: _submitForm,
                 child: const Text('Login'),
               ),
+            ),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

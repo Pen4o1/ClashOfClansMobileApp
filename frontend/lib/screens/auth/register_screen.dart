@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../home_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -27,6 +28,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
       debugPrint('Username: ${_usernameController.text}');
       debugPrint('Email: ${_emailController.text}');
       debugPrint('Password: ${_passwordController.text}');
+
+      Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
+    );
     }
   }
 
@@ -91,10 +97,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
+              SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
                 onPressed: _submitForm,
                 child: const Text('Register'),
               ),
+            ),
             ],
           ),
         ),
