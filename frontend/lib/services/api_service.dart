@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'dart:io' show Platform;
 
 class ApiService {
   // For iOS simulator, we use localhost

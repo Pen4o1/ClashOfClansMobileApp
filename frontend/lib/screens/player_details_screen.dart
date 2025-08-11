@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PlayerDetailsScreen extends StatelessWidget {
+  const PlayerDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final Map<String, dynamic>? playerData =
@@ -9,9 +11,9 @@ class PlayerDetailsScreen extends StatelessWidget {
     if (playerData == null) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Player Details'),
+          title: const Text('Player Details'),
         ),
-        body: Center(
+        body: const Center(
           child: Text('No player data available'),
         ),
       );
@@ -22,7 +24,7 @@ class PlayerDetailsScreen extends StatelessWidget {
         title: Text(playerData['name'] ?? 'Unknown Player'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,14 +34,14 @@ class PlayerDetailsScreen extends StatelessWidget {
               _buildInfoRow('Experience', 'Level ${playerData['expLevel'] ?? 'N/A'}'),
               _buildInfoRow('Trophies', '${playerData['trophies'] ?? 'N/A'} 🏆'),
             ]),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             if (playerData['clan'] != null)
               _buildInfoCard('Clan Info', [
                 _buildInfoRow('Name', playerData['clan']['name'] ?? 'N/A'),
                 _buildInfoRow('Tag', '#${playerData['clan']['tag'] ?? 'N/A'}'),
                 _buildInfoRow('Role', playerData['clan']['role'] ?? 'N/A'),
               ]),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             if (playerData['achievements'] != null)
               _buildInfoCard('Achievements', [
                 ...(playerData['achievements'] as List).map<Widget>((achievement) =>
@@ -57,18 +59,18 @@ class PlayerDetailsScreen extends StatelessWidget {
   Widget _buildInfoCard(String title, List<Widget> children) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Divider(),
+            const Divider(),
             ...children,
           ],
         ),
@@ -78,7 +80,7 @@ class PlayerDetailsScreen extends StatelessWidget {
 
   Widget _buildInfoRow(String label, String value) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -91,7 +93,7 @@ class PlayerDetailsScreen extends StatelessWidget {
           ),
           Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
